@@ -1,28 +1,176 @@
 ---
-// News Agency Homepage
+// The Litmus News - Coming Soon with Logo & Spotlight Animation
 ---
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Digital News Agency</title>
+    <title>The Litmus News | Getting Online</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body style="font-family: system-ui, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; line-height: 1.6;">
-    <header style="border-bottom: 2px solid #333; padding-bottom: 15px; margin-bottom: 30px;">
-      <h1 style="margin: 0; font-size: 2.5rem;">THE DAILY CHRONICLE</h1>
-      <p style="margin: 5px 0 0; color: #666;">Your Trusted Digital News Source</p>
-    </header>
-    
-    <main>
-      <section style="background: #f4f4f4; padding: 25px; border-radius: 8px; margin-bottom: 30px;">
-        <span style="background: #d9534f; color: white; padding: 3px 8px; font-size: 0.8rem; font-weight: bold; border-radius: 4px;">BREAKING NEWS</span>
-        <h2 style="margin-top: 10px;"><a href="#" style="color: #111; text-decoration: none;">Your News Site is Successfully Live on Cloudflare!</a></h2>
-        <p style="color: #441;">This is your hero story placeholder. Soon, you'll be able to publish stories automatically using your admin dashboard.</p>
-      </section>
-    </main>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: #090d16;
+        color: #f8fafc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
 
-    <footer style="border-top: 1px solid #ddd; margin-top: 50px; padding-top: 20px; text-align: center; color: #777; font-size: 0.9rem;">
-      <p>&copy; 2026 Digital News Agency. All rights reserved.</p>
-    </footer>
+      /* Interactive Spotlight / Illumination Effect */
+      #spotlight {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: radial-gradient(
+          600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+          rgba(37, 99, 235, 0.15),
+          transparent 80%
+        );
+        z-index: 1;
+      }
+
+      /* Top-Left Logo Styling (Transparent background, inverted text color or clean look) */
+      .top-left-logo {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 8px 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(8px);
+      }
+      .top-left-logo img {
+        height: 28px;
+        width: auto;
+        /* If your image has a white box, mix-blend-mode helps blend it into the dark background */
+        mix-blend-mode: screen; 
+      }
+
+      .container {
+        max-width: 650px;
+        padding: 40px 20px;
+        z-index: 5;
+        position: relative;
+      }
+
+      /* Center Logo Styling */
+      .center-logo-wrapper {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px 30px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        display: inline-block;
+        margin-bottom: 28px;
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+      }
+      .center-logo {
+        height: 75px;
+        width: auto;
+        display: block;
+        mix-blend-mode: screen;
+      }
+
+      .badge {
+        display: inline-block;
+        background-color: #e11d48;
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        padding: 6px 14px;
+        border-radius: 50px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(225, 29, 72, 0.4);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 14px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+
+      p {
+        color: #94a3b8;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 36px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: #2563eb;
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 14px 28px;
+        border-radius: 10px;
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        transition: all 0.2s ease;
+      }
+      .cta-button:hover {
+        background-color: #1d4ed8;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Interactive Spotlight Overlay -->
+    <div id="spotlight"></div>
+
+    <!-- Top Left Corner Logo -->
+    <div class="top-left-logo">
+      <a href="/"><img src="/logo.png" alt="The Litmus News" /></a>
+    </div>
+
+    <div class="container">
+      <!-- Center Logo Container -->
+      <div class="center-logo-wrapper">
+        <img src="/logo.png" alt="The Litmus News" class="center-logo" />
+      </div>
+
+      <div class="badge">Rajasthan's Pulse Online</div>
+      <h1>The Litmus News is Getting Online</h1>
+      <p>We are building a faster, cleaner digital home for your trusted regional updates, ground reports, and breaking stories. Our full news desk launches very soon.</p>
+      <a href="https://www.instagram.com/thelitmusnews/" target="_blank" class="cta-button">Follow Our Updates on Instagram</a>
+    </div>
+
+    <script>
+      // Cursor & Touch Illumination Animation Script
+      const spotlight = document.getElementById('spotlight');
+
+      window.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        spotlight.style.setProperty('--mouse-x', `${x}%`);
+        spotlight.style.setProperty('--mouse-y', `${y}%`);
+      });
+
+      window.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+          const touch = e.touches[0];
+          const x = (touch.clientX / window.innerWidth) * 100;
+          const y = (touch.clientY / window.innerHeight) * 100;
+          spotlight.style.setProperty('--mouse-x', `${x}%`);
+          spotlight.style.setProperty('--mouse-y', `${y}%`);
+        }
+      });
+    </script>
   </body>
 </html>

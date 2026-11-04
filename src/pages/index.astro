@@ -1,5 +1,5 @@
 ---
-// The Litmus News - Editorial Light Theme with Terracotta & Serif Typography
+// The Litmus News - Perfectly Centered Editorial Layout with Blended Logo
 ---
 <html lang="en">
   <head>
@@ -11,7 +11,7 @@
         margin: 0;
         padding: 0;
         font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-        background-color: #f7f5f0; /* Editorial off-white / cream background */
+        background-color: #f7f5f0;
         color: #1a1a1a;
         display: flex;
         justify-content: center;
@@ -19,7 +19,7 @@
         min-height: 100vh;
         text-align: center;
         position: relative;
-        overflow: hidden;
+        overflow-x: hidden;
       }
 
       /* Warm terracotta interactive illumination spotlight */
@@ -39,7 +39,7 @@
         transition: background 0.1s ease-out;
       }
 
-      /* Top-Left Logo (No rounded corners, blends into cream background) */
+      /* Top-Left Logo */
       .top-left-logo {
         position: absolute;
         top: 28px;
@@ -52,30 +52,41 @@
         height: 36px;
         width: auto;
         display: block;
+        mix-blend-mode: multiply;
       }
 
+      /* Strict Centered Layout Container */
       .container {
-        max-width: 700px;
+        max-width: 750px;
+        width: 100%;
         padding: 40px 20px;
         z-index: 5;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
       }
 
-      /* Center Logo (Sharp edges, no rounded boxes) */
+      /* Larger Center Logo positioned ABOVE the badge with background blending */
       .center-logo-container {
-        margin-bottom: 30px;
-        display: inline-block;
+        margin-bottom: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
       }
       .center-logo {
-        height: 90px;
+        height: 130px; /* Made larger as requested */
         width: auto;
         display: block;
-        margin: 0 auto;
+        mix-blend-mode: multiply; /* Seamlessly blends the white image background into the cream page */
       }
 
       .badge {
         display: inline-block;
-        background-color: #c17254; /* Terracotta badge */
+        background-color: #c17254;
         color: white;
         font-family: system-ui, -apple-system, sans-serif;
         font-size: 0.75rem;
@@ -96,7 +107,7 @@
 
       h1 span {
         font-style: italic;
-        color: #c17254; /* Terracotta accent text matching your screenshot style */
+        color: #c17254;
       }
 
       p {
@@ -119,7 +130,7 @@
         transition: background-color 0.2s ease, transform 0.2s ease;
       }
       .cta-button:hover {
-        background-color: #c17254; /* Turns terracotta on hover */
+        background-color: #c17254;
         transform: translateY(-2px);
       }
     </style>
@@ -134,7 +145,7 @@
     </div>
 
     <div class="container">
-      <!-- Center Logo -->
+      <!-- Center Logo positioned strictly ABOVE the badge -->
       <div class="center-logo-container">
         <img src="/logo.png" alt="The Litmus News" class="center-logo" />
       </div>
